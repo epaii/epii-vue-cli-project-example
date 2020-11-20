@@ -7,6 +7,7 @@
   "author": "MrRen",
   "license": "ISC",
   "dependencies": {
-    "eapp-uni": "latest"
+    "eapp-uni": "latest",
+    "epii-vue-ui-loading":"latest"
   }
 }

@@ -15,6 +15,7 @@ module.exports = async function(copy,fs,readline){
           setTimeout(() => {
             let pdata = JSON.parse(fs.readFileSync(process.cwd() + "/package.json"));
             pdata.dependencies["eapp-h5-plus-vue"] = "latest";
+            pdata.dependencies["epii-vue-ui-loading"]="latest";
             copy(__dirname + "/2", process.cwd())
             if (leixing == 3) {
               pdata.dependencies["eapp-vue-yitiji"] = "latest";

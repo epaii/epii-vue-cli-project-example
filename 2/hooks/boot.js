@@ -1,5 +1,5 @@
 import Vue from "vue";
-import epiiLoading from '../epii/components/epii-loading/loading.vue'
+import epiiLoading from 'epii-vue-ui-loading'
 
 export default async () => {
     Eapp.initialize({
