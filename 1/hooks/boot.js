@@ -1,4 +1,5 @@
+import   '../app.css'
 export default   ()=>{
-    console.log("boot");
+    
      
 }

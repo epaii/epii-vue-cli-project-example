@@ -1,0 +1,32 @@
+.epii-select{
+    background: #fff;
+    padding: 0 30rpx;
+    height: 98rpx;
+}
+.epii-select-flex{
+    height: 98rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #DBDBDB;
+}
+.epii-select-select{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+}
+.epii-select-title{		
+    font-size: 34rpx;
+}
+.epii-select-info{
+    color: #BDBDBD;
+    font-size: 30rpx;
+    line-height: 1.2;
+    margin-left: 50rpx;
+}
+.epii-select-icon{
+    width: 18rpx;
+    margin-left: 14rpx;
+}
