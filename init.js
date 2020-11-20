@@ -1,4 +1,4 @@
-module.exports = async function(copy,fs){
+module.exports = async function(copy,fs,readline){
     console.log(
         "请选择项目模板\n" +
         "1、epii-vue 项目\n" +
