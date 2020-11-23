@@ -25,7 +25,7 @@ export default {
       Eapp.http.setBaseData({
         token: token,
       });
-      Eapp.window.open(Eapp.window.config.root_page);
+      Eapp.window.replace(Eapp.config.root_page);
     }, 2000);
   },
   methods: {

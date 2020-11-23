@@ -11,7 +11,7 @@ export default {
     if (this.$route.query.url) {
       Eapp.localData.set("_goto_url", this.$route.query.url);
     }
-    Eapp.window.open(Eapp.window.config.root_page);
+    Eapp.window.replace(Eapp.config.root_page);
   },
   methods: {},
 };

@@ -1,7 +1,19 @@
 {
-	"pages": [ 
+	"pages": [{
+			"path": "pages/root",
+			"style": {
+				"navigationBarTitleText": "epii-uni-app"
+			}
+		},
 		{
-			"path": "pages/root/root",
+			"path": "pages/login",
+			"style": {
+				"navigationBarTitleText": "login"
+			}
+		},
+
+		{
+			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "epii-uni-app"
 			}

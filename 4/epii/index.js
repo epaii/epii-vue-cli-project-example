@@ -17,22 +17,30 @@ export default {
 
 		Eapp.window.listener.beforIn = function (url, next) {
 			let url1 = url.split("?")[0];
+			let checkgoto = function(){
+				if(url1 == Eapp.config.root_page)
+				{
+					let _goto_url = Eapp.localData.get('_goto_url');
+					if (_goto_url) {
+						setTimeout(() => {
+							Eapp.localData.remove('_goto_url')
+							Eapp.window.open(_goto_url)
+						}, 1000)
+					
+					}
+				}
+				
+			}
 			if (Eapp.config.no_login_pages.indexOf(url1) > -1) {
 				next();
-				let _goto_url = Eapp.localData.get('_goto_url');
-				if (_goto_url) {
-					setTimeout(() => {
-						Eapp.localData.remove('_goto_url')
-						Eapp.window.open(_goto_url)
-					}, 1000)
-
-				}
+				checkgoto();
 				return;
 			}
 			if ((!Eapp.localData.get('token')) || Eapp.localData.get('token') == '') {
 				Eapp.window.replace("/pages/login");
 			} else {
 				next()
+				checkgoto();
 			}
 		}
 
