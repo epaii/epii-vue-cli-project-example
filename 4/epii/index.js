@@ -4,22 +4,39 @@ import configDev from '../config/config.development'
 import configPro from '../config/config.production'
 export default {
 	install() {
- 		Eapp.initialize({
+		Eapp.initialize({
 			vue: Vue
 		});
-		Eapp.window.listener.beforIn = function(url,next){
-			console.log(url)
-			console.log("你可以在这里设置是否需要登录")
-			next()
-		}
-		
+
+
 		if (process.env.NODE_ENV === 'development') {
 			Eapp.config = Object.assign(configBase, configDev);
 		} else {
 			Eapp.config = Object.assign(configBase, configPro);
 		}
 
-		if (Eapp.config&& Eapp.config.hasOwnProperty("api_url_base")) {
+		Eapp.window.listener.beforIn = function (url, next) {
+			let url1 = url.split("?")[0];
+			if (Eapp.config.no_login_pages.indexOf(url1) > -1) {
+				next();
+				let _goto_url = Eapp.localData.get('_goto_url');
+				if (_goto_url) {
+					setTimeout(() => {
+						Eapp.localData.remove('_goto_url')
+						Eapp.window.open(_goto_url)
+					}, 1000)
+
+				}
+				return;
+			}
+			if ((!Eapp.localData.get('token')) || Eapp.localData.get('token') == '') {
+				Eapp.window.replace("/pages/login");
+			} else {
+				next()
+			}
+		}
+
+		if (Eapp.config && Eapp.config.hasOwnProperty("api_url_base")) {
 			Eapp.http.setApiBase(Eapp.config.api_url_base)
 			Eapp.uploader.setUploadApi(Eapp.config.api_url_base + Eapp.config.upload_uri)
 		}
@@ -36,7 +53,7 @@ export default {
 				}
 			}
 		});
-		Vue.prototype.show = function() {
+		Vue.prototype.show = function () {
 			let djs = setInterval(() => {
 				if (this.$children.length > 0) {
 					clearInterval(djs)
@@ -46,7 +63,7 @@ export default {
 				}
 			}, 10);
 		}
-		Vue.prototype.loading = function() {
+		Vue.prototype.loading = function () {
 			if (this.$children[0] && this.$children[0]["loading"] && (typeof this.$children[0]["loading"] === "function")) {
 				this.$children[0].loading()
 			}

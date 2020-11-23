@@ -14,13 +14,12 @@
 	export default {
 		data() {
 			return {
-				title: '主要功能: \n1、Eapp 的基础实现\n2、页面基础加载epii-loading\n3、软件更新功能\n4、config配置\n'
+				title: '主要功能: \n1、Eapp 的基础实现\n2、页面基础加载epii-loading\n3、软件更新功能\n4、config配置\n 5,自带登录逻辑 \n 6,通过在入口增加 url参数，实现金进入首页后自动跳转'
 			}
 		},
 		onLoad() {
 			setTimeout(()=>{
-				this.show()
-				
+				this.show()	
 			},3000)
 			
 		},
