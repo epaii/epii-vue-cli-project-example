@@ -8,6 +8,7 @@
   "license": "ISC",
   "dependencies": {
     "eapp-uni": "latest",
-    "epii-vue-ui-loading":"latest"
+    "epii-vue-ui-loading":"latest",
+    "epii-uni-push":"latest"
   }
 }

@@ -2,6 +2,8 @@ import Vue from "vue";
 import configBase from '../config/config.base'
 import configDev from '../config/config.development'
 import configPro from '../config/config.production'
+import push from 'epii-uni-push'
+import eapp_push_init from 'epii-uni-push/eapp-handler'
 export default {
 	install() {
 		Eapp.initialize({
@@ -15,10 +17,12 @@ export default {
 			Eapp.config = Object.assign(configBase, configPro);
 		}
 
+		push.init();
+		eapp_push_init();
 		Eapp.window.listener.beforIn = function (url, next) {
 			let url1 = url.split("?")[0];
 			let checkgoto = function(){
-				if(url1 == Eapp.config.root_page)
+				if(url1 === Eapp.config.root_page)
 				{
 					let _goto_url = Eapp.localData.get('_goto_url');
 					if (_goto_url) {
@@ -37,7 +41,8 @@ export default {
 				return;
 			}
 			if ((!Eapp.localData.get('token')) || Eapp.localData.get('token') == '') {
-				Eapp.window.replace("/pages/login");
+				Eapp.localData.set('login_goto_url',url)
+				Eapp.window.open("/pages/login");
 			} else {
 				next()
 				checkgoto();
