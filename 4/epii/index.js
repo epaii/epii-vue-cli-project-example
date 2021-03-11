@@ -42,7 +42,7 @@ export default {
 			}
 			if ((!Eapp.localData.get('token')) || Eapp.localData.get('token') == '') {
 				Eapp.localData.set('login_goto_url',url)
-				Eapp.window.open("/pages/login");
+				Eapp.window.replace("/pages/login");
 			} else {
 				next()
 				checkgoto();
