@@ -2,8 +2,11 @@ import Vue from "vue";
 import configBase from '../config/config.base'
 import configDev from '../config/config.development'
 import configPro from '../config/config.production'
+
+// #ifdef APP-PLUS
 import push from 'epii-uni-push'
 import eapp_push_init from 'epii-uni-push/eapp-handler'
+// #endif
 export default {
 	install() {
 		Eapp.initialize({
@@ -16,9 +19,10 @@ export default {
 		} else {
 			Eapp.config = Object.assign(configBase, configPro);
 		}
-
+		// #ifdef APP-PLUS
 		push.init();
 		eapp_push_init();
+		// #endif
 		Eapp.window.listener.beforIn = function (url, next) {
 			let url1 = url.split("?")[0];
 			let checkgoto = function(){
@@ -28,7 +32,7 @@ export default {
 					if (_goto_url) {
 						setTimeout(() => {
 							Eapp.localData.remove('_goto_url')
-							Eapp.window.open(_goto_url)
+							Eapp.window.replace(_goto_url)
 						}, 1000)
 					
 					}

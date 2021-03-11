@@ -1,0 +1,14 @@
+	.group-margin-top {
+		margin-top: 15upx !important;
+	}
+
+	.page-margin {
+		margin: auto 20upx;
+	}
+	.page_epii {
+		width: 100%;
+		margin-left: 0;
+		min-height: calc(100vh - 44px);
+		background-color: #EFEFF4;
+		overflow: hidden;
+	}

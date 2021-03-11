@@ -2,7 +2,7 @@
 	export default {
 		onLaunch: function() {
 			// #ifdef APP-PLUS
-			plus.screen.lockOrientation('portrait-primary');
+			//plus.screen.lockOrientation('portrait-primary');
 			//plus.screen.lockOrientation('landscape');
 			if (Eapp.config.hasOwnProperty("app_update_api") && Eapp.config.app_update_api.length > 0) {
 				plus.runtime.getProperty(plus.runtime.appid, function(widgetInfo) {
@@ -19,9 +19,8 @@
 								success: (downloadResult) => {
 									if (downloadResult.statusCode === 200) {
 										plus.runtime.install(downloadResult.tempFilePath, {
-											force: false
+											force: true
 										}, function() {
-
 											plus.runtime.restart();
 										}, function(e) {
 
@@ -52,25 +51,13 @@
 		},
 		onHide: function() {
 			console.log('App Hide')
+		},
+		globalData:{
+			Eapp:Eapp
 		}
 	}
 </script>
 
 <style>
-	.group-margin-top {
-		margin-top: 15upx !important;
-	}
-
-	.page-margin {
-		margin: auto 20upx;
-	}
-
-
-	.page_epii {
-		width: 100%;
-		margin-left: 0;
-		min-height: calc(100vh - 44px);
-		background-color: #EFEFF4;
-		overflow: hidden;
-	}
+	@import "./static/app.css";
 </style>
