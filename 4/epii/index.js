@@ -44,7 +44,7 @@ export default {
 			}
 			if ((!Eapp.localData.get('token')) || Eapp.localData.get('token') == '') {
 				Eapp.localData.set('login_goto_url',url)
-				Eapp.window.replace("/pages/login");
+				Eapp.window.replace(Eapp.config.login_page);
 			} else {
 				next()
 				checkgoto();
