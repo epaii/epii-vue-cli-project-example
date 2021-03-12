@@ -1,5 +1,5 @@
 <template>
-	<epii-loading>
+	<epii-loading style="top: 0;bottom: 0;left: 0;">
 	<view class="content">
 		 
 		<view class="text-area">
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+	let Eapp = getApp().globalData.Eapp;
 	export default {
 		data() {
 			return {
@@ -19,11 +20,21 @@
 		},
 		onLoad() {
 			setTimeout(()=>{
-				this.show()	
+				 Eapp.window.show(this)
 			},3000)
 			
 		},
 		methods: {
+			show() {
+				let djs = setInterval(() => {
+					if (this.$children.length > 0) {
+						clearInterval(djs)
+						if (this.$children[0] && this.$children[0]["show"] && (typeof this.$children[0]["show"] === "function")) {
+							this.$children[0].show()
+						}
+					}
+				}, 10);
+			},
 			submit(){
 				 Eapp.ui.alert("alert in Eapp")
 			}
@@ -33,7 +44,6 @@
 
 <style>
 	.content {
-		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
@@ -43,13 +53,13 @@
 		height: 200rpx;
 		width: 200rpx;
 		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
 		margin-bottom: 50rpx;
 	}
 
 	.text-area {
-		display: flex;
+		/* #ifndef APP-PLUS */
+		 display: flex;
+		/* #endif */ 
 		justify-content: center;
 	}
 

@@ -9,6 +9,7 @@
 </template>
 
 <script>
+	let Eapp = getApp().globalData.Eapp;
 	export default {
 		data() {
 			return {
@@ -17,7 +18,7 @@
 		},
 		onLoad() {
 			setTimeout(() => {
-				this.show();
+				 Eapp.window.show(this)
 			}, 10);
 			setTimeout(() => {
 				let  data = {token : "asdfasdfasdf"};
@@ -25,7 +26,6 @@
 			}, 2000);
 		},
 		methods: {
-			 
 			onlogin(data) {
 				Eapp.localData.set("token", data.token);
 				Eapp.http.setBaseData({

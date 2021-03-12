@@ -3,15 +3,15 @@ import configBase from '../config/config.base'
 import configDev from '../config/config.development'
 import configPro from '../config/config.production'
 
+
 // #ifdef APP-PLUS
 import push from 'epii-uni-push'
 import eapp_push_init from 'epii-uni-push/eapp-handler'
 // #endif
 export default {
 	install() {
+		 
 		Eapp.initialize();
-
-
 		if (process.env.NODE_ENV === 'development') {
 			Eapp.config = Object.assign(configBase, configDev);
 		} else {
@@ -68,21 +68,28 @@ export default {
 				}
 			}
 		});
-		Vue.prototype.show = function () {
+		let page_show = function (obj) {
 			let djs = setInterval(() => {
-				if (this.$children.length > 0) {
+				if (obj.$children.length > 0) {
 					clearInterval(djs)
-					if (this.$children[0] && this.$children[0]["show"] && (typeof this.$children[0]["show"] === "function")) {
-						this.$children[0].show()
+					if (obj.$children[0] && obj.$children[0]["show"] && (typeof obj.$children[0]["show"] === "function")) {
+						obj.$children[0].show()
 					}
 				}
 			}, 10);
 		}
-		Vue.prototype.loading = function () {
-			if (this.$children[0] && this.$children[0]["loading"] && (typeof this.$children[0]["loading"] === "function")) {
-				this.$children[0].loading()
+		let page_loading = function(obj){
+			if (obj.$children[0] && obj.$children[0]["loading"] && (typeof obj.$children[0]["loading"] === "function")) {
+				obj.$children[0].loading()
 			}
 		}
-
+		Vue.prototype.show = function () {
+			 page_show(this)
+		}
+		Vue.prototype.loading = function () {
+			page_loading(this)
+		}
+		Eapp.window.show = page_show;
+		Eapp.window.loading = page_loading;
 	}
 }
