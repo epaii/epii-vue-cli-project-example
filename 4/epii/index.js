@@ -9,9 +9,7 @@ import eapp_push_init from 'epii-uni-push/eapp-handler'
 // #endif
 export default {
 	install() {
-		Eapp.initialize({
-			vue: Vue
-		});
+		Eapp.initialize();
 
 
 		if (process.env.NODE_ENV === 'development') {
