@@ -26,6 +26,6 @@
 		"backgroundColor": "#F8F8F8"
 	},
 	"easycom": {
-		"epii-(.*)": "epii-vue-ui-$1"
+		"epii-(.*)": "epii-vue-ui-$1/epii-$1"
 	}
 }
