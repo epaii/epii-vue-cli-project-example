@@ -6,6 +6,12 @@
 			}
 		},
 		{
+			"path": "epii/eapp-uni/webview",
+			"style": {
+				"navigationBarTitleText": "详情"
+			}
+		},
+		{
 			"path": "pages/login",
 			"style": {
 				"navigationBarTitleText": "login"
