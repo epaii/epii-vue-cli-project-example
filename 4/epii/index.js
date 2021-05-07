@@ -55,7 +55,11 @@ export default {
 			Eapp.http.setApiBase(Eapp.config.api_url_base)
 			Eapp.uploader.setUploadApi(Eapp.config.api_url_base + Eapp.config.upload_uri)
 		}
-
+		let uinfo = uni.getSystemInfoSync();
+		Eapp.http.setBaseData({
+			__platform: uinfo.platform,
+			__version:Eapp.config.version?Eapp.config.version:0
+		});
 		if (Eapp.localData.get("token")) {
 			Eapp.http.setBaseData({
 				token: Eapp.localData.get("token"),

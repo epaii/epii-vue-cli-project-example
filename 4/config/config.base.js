@@ -1,4 +1,5 @@
 module.exports = {
+	version:1,
 	app_update_api:"",
 	upload_uri:"",
 	root_page:"/pages/index/index",
