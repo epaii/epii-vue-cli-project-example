@@ -1,18 +1,21 @@
-import Vue from "vue";
-import packagejson from '../package.json'
-import   '../app.css'
 
-export default async () => {
+import packagejson from '../package.json'
+import '../app.css'
+
+export default async (app) => {
+
+
     Eapp.initialize({
-        vue: Vue
+        vue: app
     });
-    
+
+
     Eapp.config = APP_CONFIG;
 
     async function load(key) {
         return new Promise(ok => {
             import("../node_modules/" + key + "/" + key.replace("vue-ui-", "") + ".vue").then(m => {
-                Vue.component(key.replace("vue-ui-", ""), m.default);
+                app.component(key.replace("vue-ui-", ""), m.default);
                 ok();
             });
         });
@@ -33,26 +36,24 @@ export default async () => {
             token: Eapp.localData.get("token"),
         });
     }
-    Vue.mixin({
-        data: function () {
-            return {
-                api: {}
-            }
-        }
-    });
-    Vue.prototype.show = function () {
+
+    app.config.globalProperties.api={};
+    app.config.globalProperties.show = function () {
+
         let djs = setInterval(() => {
-            if (this.$children.length > 0) {
+            if (this.epii_loading) {
                 clearInterval(djs)
-                if (this.$children[0] && this.$children[0]["show"] && (typeof this.$children[0]["show"] === "function")) {
-                    this.$children[0].show()
-                }
+                this.epii_loading.show()
             }
         }, 10);
     }
-    Vue.prototype.loading = function () {
-        if (this.$children[0] && this.$children[0]["loading"] && (typeof this.$children[0]["loading"] === "function")) {
-            this.$children[0].loading()
-        }
+    app.config.globalProperties.loading = function () {
+        let djs = setInterval(() => {
+            if (this.epii_loading) {
+                clearInterval(djs)
+                this.epii_loading.loading()
+            }
+        }, 10);
     }
+
 }
