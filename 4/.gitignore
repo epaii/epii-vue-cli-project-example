@@ -1,0 +1,17 @@
+/.idea
+/.vscode
+/vendor
+*.log
+*.DS_Store
+*.bat
+*.sh
+*.conf
+*.ini
+deploy
+.time
+readme.tuiguang.md
+/config/config.development.js
+.hbuilderx
+/unpackage/*
+!/unpackage/res
+!/unpackage/debug
