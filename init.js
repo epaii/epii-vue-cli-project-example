@@ -14,8 +14,8 @@ module.exports = async function(copy,fs,readline){
         if (leixing == 2 || leixing == 3) {
           setTimeout(() => {
             let pdata = JSON.parse(fs.readFileSync(process.cwd() + "/package.json"));
-            pdata.dependencies["eapp-h5-plus-vue"] = "latest";
-            pdata.dependencies["epii-vue-ui-loading"]="latest";
+            pdata.dependencies["eapp-h5-plus-vue"] = ">=1.0.0";
+            pdata.dependencies["epii-vue-ui-loading"]=">=0.0.3";
             copy(__dirname + "/2", process.cwd())
             if (leixing == 3) {
               pdata.dependencies["eapp-vue-yitiji"] = "latest";
