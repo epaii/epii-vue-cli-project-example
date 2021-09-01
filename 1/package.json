@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "epii-vue-cli",
+    "build": "epii-vue-cli build",
     "dev-spa": "epii-vue-cli",
     "dev-mpa": "epii-vue-cli --mpa",
     "build-spa": "epii-vue-cli build",

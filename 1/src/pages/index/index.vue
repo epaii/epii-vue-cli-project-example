@@ -3,9 +3,8 @@
         
         <button @click="submit"> alert</button>
         <br>
-        <a href="/#/index.html/a">spa-test</a>  
-        <br> 
-        <a href="index.html/#/a">mpa-test</a>   
+        <a href="/#/index.html/a">show a1</a>  
+       <router-view />
     </div>
 </template>
 
@@ -17,10 +16,7 @@
 			}
 		},
 		onLoad() {
-			setTimeout(()=>{
-				this.show()
-				
-			},3000)
+		 
 			
 		},
 		methods: {
