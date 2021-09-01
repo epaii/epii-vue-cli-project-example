@@ -3,7 +3,7 @@
         
         <button @click="submit"> alert</button>
         <br>
-        <a href="/#/index.html/a">show a1</a>  
+        <a href="/#/index.html/a1.html">show a1</a>  
        <router-view />
     </div>
 </template>
