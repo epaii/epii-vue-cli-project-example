@@ -24,7 +24,7 @@ module.exports = async function(copy,fs,readline){
   
             fs.writeFileSync(process.cwd() + "/package.json", JSON.stringify(pdata))
             console.log("Init Success，Get started with the following commands:\n  npm install")
-          }, 100);
+          }, 1000);
   
         }
       } else if (leixing == 4) {
