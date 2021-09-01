@@ -21,7 +21,7 @@
 		},
 		methods: {
 			submit(){
-				 Eapp.ui.alert("alert in Eapp")
+				 alert("alert")
 			}
 		}
 	}

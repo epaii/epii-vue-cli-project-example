@@ -1,15 +1,11 @@
 {
-  "name": "epii-vue-cli-project",
+  "name": "epii-vue3-cli-project",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "",
   "scripts": {
-    "dev": "epii-vue-cli",
-    "build": "epii-vue-cli build",
-    "dev-spa": "epii-vue-cli",
-    "dev-mpa": "epii-vue-cli --mpa",
-    "build-spa": "epii-vue-cli build",
-    "build-mpa": "epii-vue-cli build --mpa"
+    "dev": "epii-vue3-cli",
+    "build": "epii-vue3-cli build"
   },
   "author": "MrRen",
   "license": "ISC",
