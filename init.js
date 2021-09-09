@@ -19,6 +19,7 @@ module.exports = async function(copy,fs,readline){
             copy(__dirname + "/2", process.cwd())
             if (leixing == 3) {
               pdata.dependencies["eapp-vue-yitiji"] = "latest";
+              pdata.dependencies["web-run-local"] = "latest";
               copy(__dirname + "/3", process.cwd())
             }
   
