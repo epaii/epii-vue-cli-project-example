@@ -32,6 +32,9 @@
 		"backgroundColor": "#F8F8F8"
 	},
 	"easycom": {
-		"epii-(.*)": "epii-vue-ui-$1/epii-$1"
+		"epii-loading": "epii-vue-ui-loading/epii-loading",
+		"app-ui-(.*)": "@/app-components/app-ui/$1.vue",
+		"app-m-(.*)": "@/app-components/app-module/$1.vue",
+		"app-page-(.*)": "@/app-components/app-page/$1.vue"
 	}
 }
