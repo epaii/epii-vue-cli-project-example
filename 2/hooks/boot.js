@@ -37,23 +37,62 @@ export default async (app) => {
         });
     }
 
-    app.config.globalProperties.api={};
+    app.config.globalProperties.api = {};
+    app.config.globalProperties.$app = app;
+
     app.config.globalProperties.show = function () {
 
-        let djs = setInterval(() => {
-            if (this.epii_loading) {
-                clearInterval(djs)
-                this.epii_loading.show()
+        this.$nextTick(() => {
+            if (!this.epii_loading) {
+                let hasObjct = this;
+                while (true) {
+                    if (hasObjct.epii_loading) {
+                        this.epii_loading = hasObjct.epii_loading;
+                        break;
+                    }
+                    if (hasObjct.$parent) {
+                        hasObjct = hasObjct.$parent
+
+                    } else {
+                        break;
+                    }
+                }
+
             }
-        }, 10);
+
+            if (this.epii_loading) {
+                setTimeout(() => {
+                    this.epii_loading.show()
+                }, 1500);
+
+            }
+        })
     }
     app.config.globalProperties.loading = function () {
-        let djs = setInterval(() => {
+
+        this.$nextTick(() => {
+            if (!this.epii_loading) {
+                let hasObjct = this;
+                while (true) {
+                    if (hasObjct.epii_loading) {
+                        this.epii_loading = hasObjct.epii_loading;
+                        break;
+                    }
+                    if (hasObjct.$parent) {
+                        hasObjct = hasObjct.$parent
+                    } else {
+                        break;
+                    }
+                }
+
+            }
+
             if (this.epii_loading) {
-                clearInterval(djs)
                 this.epii_loading.loading()
             }
-        }, 10);
+        })
     }
+
+    app.config.globalProperties.$go = Eapp.window.open;
 
 }

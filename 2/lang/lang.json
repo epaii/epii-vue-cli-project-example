@@ -1,0 +1,6 @@
+{
+    "login":{
+        "login_success":"登录成功",
+        "logout_sure":"确定要退出系统吗?"
+    }
+}
