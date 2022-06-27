@@ -3,4 +3,4 @@ test
 .vscode
 .idea
 runtime
-dist
+/dist
