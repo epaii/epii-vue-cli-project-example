@@ -4,7 +4,8 @@ module.exports = async function(copy,fs,readline){
         "1、epii-vue 项目\n" +
         "2、epii-vue 带Eapp 项目\n" +
         "3、epii-vue 带一体机版本的Eapp 项目\n" +
-        "4、uniapp 带Eapp 项目"
+        "4、uniapp 带Eapp 项目\n"+
+        "5、epii-xx-admin-project项目"
       );
       let leixing = await readline();
   
@@ -31,5 +32,8 @@ module.exports = async function(copy,fs,readline){
       } else if (leixing == 4) {
         copy(__dirname + "/4", process.cwd());
         console.log("Init Success，It is need run \n npm install \n open this dir from hbuilderx")
+      } else if (leixing == 5) {
+        copy(__dirname + "/5", process.cwd());
+        console.log("Init Success，It is need run \n npm install \n npm run dev")
       }
 }

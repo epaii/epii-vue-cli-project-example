@@ -1,0 +1,20 @@
+{
+  "name": "epii-xx-admin-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "dev": "epii-vue3-cli",
+    "build": "epii-vue3-cli build"
+  },
+  "author": "MrRen",
+  "license": "ISC",
+  "dependencies": {
+    "@vicons/antd": "^0.12.0",
+    "@vicons/ionicons5": "^0.12.0",
+    "epii-vue3-create-app": "^0.0.5",
+    "epii-vue3-dialog": "^0.0.9",
+    "epii-xx-admin": "^0.0.3",
+    "vfonts": "^0.0.3"
+  }
+}
