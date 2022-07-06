@@ -14,7 +14,7 @@
     "@vicons/ionicons5": "^0.12.0",
     "epii-vue3-create-app": "^0.0.5",
     "epii-vue3-dialog": "^0.0.9",
-    "epii-xx-admin": "^0.0.3",
+    "epii-xx-admin": "^0.0.4",
     "vfonts": "^0.0.3"
   }
 }
