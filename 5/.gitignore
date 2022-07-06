@@ -1,5 +1,5 @@
 build
-test
+/test
 .vscode
 .idea
 runtime
