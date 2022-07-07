@@ -2,14 +2,14 @@ import xxAdmin from 'epii-xx-admin'
 import { proxy } from "epii-xx-admin";
 import { onCreateApp } from 'epii-vue3-create-app';
 import '../app.css'
-
+import routes from "../runtime/spa_router";
 //测试使用，正式需要删除
 import test from '../src/pages/test/test.js';
 
 export default async (app) => {
-
+    proxy.pages.installRoutes(routes)
     app.use(test);
-
+    
     let onCreateAppFunction = async function (app) {
         await xxAdmin.install(app);
         // app.use(xxAdmin)
