@@ -1,6 +1,7 @@
 
 import packagejson from '../package.json'
 import '../app.css'
+import { autoRegisterComponent } from "epii-xx-auto-register-component";
 
 export default async (app) => {
 
@@ -26,6 +27,19 @@ export default async (app) => {
         }
     }
 
+    const ctx = require.context('../app-components/app-service', true, /\.js$/);
+    Eapp.services = {};
+
+    ctx.keys().forEach(key => {
+        const keyArr = key.split('/')
+        keyArr.shift()
+        Eapp.services[keyArr.join('.').replace(/\.js$/g, '')] = ctx(key).default
+
+    });
+
+    autoRegisterComponent(app, require.context('../app-components/app-ui', true, /\.vue$/), "app-ui");
+    autoRegisterComponent(app, require.context('../app-components/app-module', true, /\.vue$/), "app-m");
+    autoRegisterComponent(app, require.context('../app-components/app-page', true, /\.vue$/), "app-page");
 
     if (Eapp.config && Eapp.config.hasOwnProperty("api_url_base")) {
         Eapp.http.setApiBase(Eapp.config.api_url_base)

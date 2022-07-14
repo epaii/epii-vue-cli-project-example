@@ -17,11 +17,14 @@ module.exports = async function(copy,fs,readline){
             let pdata = JSON.parse(fs.readFileSync(process.cwd() + "/package.json"));
             pdata.dependencies["eapp-h5-plus-vue"] = ">=1.0.0";
             pdata.dependencies["epii-vue-ui-loading"]=">=0.0.3";
+            pdata.dependencies["epii-xx-auto-register-component"] = "^1.0.2";
             copy(__dirname + "/2", process.cwd())
             if (leixing == 3) {
               pdata.dependencies["eapp-vue-yitiji"] = "latest";
               pdata.dependencies["web-run-local"] = "latest";
               copy(__dirname + "/3", process.cwd())
+            }else if(leixing==2){
+             
             }
   
             fs.writeFileSync(process.cwd() + "/package.json", JSON.stringify(pdata))
