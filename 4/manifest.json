@@ -44,5 +44,11 @@
     },
     "uniStatistics": {  
         "enable": false
+    },
+    "h5" : {
+        "async" : {
+            "delay" : "10000" 
+        },
+        "template" : "index.html"
     }
 }

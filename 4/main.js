@@ -41,5 +41,10 @@ let runapp = async ()=>{
 	
 	app.$mount()
 	Vue.__app = app;
+	// #ifdef H5
+	if(window.getAppHandler){
+		window.getAppHandler().stopLoading();
+	}
+	// #endif
 }
 runapp();
