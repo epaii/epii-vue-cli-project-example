@@ -38,7 +38,7 @@ export default async (app) => {
             }, 10);
         }
     }
-    onCreateAppFunction(app);
+   await onCreateAppFunction(app);
     onCreateApp(onCreateAppFunction);
 
 
